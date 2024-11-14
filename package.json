@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@stoprocent/noble": "^1.15.1",
+    "osc": "^2.4.5"
+  }
+}
