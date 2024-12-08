@@ -10,6 +10,11 @@ const udpPort = new osc.UDPPort({
 });
 const fs = require('fs');
 
+// Create log file if it doesn't exist
+if (!fs.existsSync('osc_messages.log')) {
+  fs.writeFileSync('osc_messages.log', '');
+}
+
 udpPort.on("message", (oscMessage) => {
   // console.log("Received OSC message:", oscMessage);
   fs.appendFileSync('osc_messages.log', JSON.stringify(oscMessage) + '\n');
