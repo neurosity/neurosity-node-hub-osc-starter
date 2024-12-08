@@ -8,9 +8,11 @@ const udpPort = new osc.UDPPort({
   localAddress: "0.0.0.0",
   localPort: 9000,
 });
+const fs = require('fs');
 
 udpPort.on("message", (oscMessage) => {
-  console.log("Received OSC message:", oscMessage);
+  // console.log("Received OSC message:", oscMessage);
+  fs.appendFileSync('osc_messages.log', JSON.stringify(oscMessage) + '\n');
 });
 
 udpPort.open();
